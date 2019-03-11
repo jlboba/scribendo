@@ -1,0 +1,81 @@
+/* ==================== */
+/*     GRID SYSTEM      */
+/* ==================== */
+.landing-grid-container {
+  background: thistle;
+  display: grid;
+  height: 100vh;
+  grid-template-areas: "sidebar main-content"
+                       "footer main-content";
+  grid-template-rows: 0.93fr 0.07fr;
+  grid-template-columns: 0.45fr 0.55fr;
+}
+
+/* ==================== */
+/*       SIDEBAR        */
+/* ==================== */
+.landing-sidebar {
+  grid-row: main-content / footer;
+  grid-column: main-content;
+  background: var(--main-color);
+}
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.sidebar-content {
+  position: relative;
+  z-index: 2;
+}
+ul.landing-nav {
+  list-style-type: none;
+  text-align: right;
+  margin: 30px 40px;
+}
+.landing-nav > li {
+  display: inline-block;
+  margin-left: 20px;
+  font-family: var(--accent-font);
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: whitesmoke;
+}
+.landing-nav > li:after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 3px;
+  background: var(--accent-color);
+  margin-top: 5px;
+  transition: width 0.7s ease-in-out;
+}
+li.landing-nav-active:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-color);
+  margin-top: 5px;
+}
+.landing-nav > li:hover:after {
+  width: 100%;
+}
+.landing-nav > li:hover {
+  cursor: pointer;
+}
+/* ==================== */
+/*         MAIN         */
+/* ==================== */
+.landing-main {
+  background: whitesmoke;
+}
+
+/* ==================== */
+/*       FOOTER         */
+/* ==================== */
+.landing-footer {
+  background: #eee;
+}

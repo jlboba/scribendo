@@ -4,6 +4,7 @@
 // -- packages
 import React, { useState } from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
+import axios from 'axios'
 
 // -- components
 import LandingPage from './landingpage/LandingPage'
@@ -17,7 +18,20 @@ function App() {
   // USER STATUS (LOGGED IN?)
   // ==============================
   // -- state
+  // eslint-disable-next-line
   const [loggedIn, setLoggedIn] = useState(false)
+
+  // ==============================
+  // AXIOS REQUESTS
+  // ==============================
+  // create a new user
+  function handleCreateUser(newUser) {
+    axios.post('http://localhost:3000/users', newUser)
+      .then((createdUser) => {
+        console.log(createdUser)
+      })
+      .catch(err => console.log(err))
+  }
 
   // ==============================
   // JSX RETURN
@@ -30,10 +44,10 @@ function App() {
           loggedIn ? (
             <Redirect to="/dashboard"/>
           ) : (
-            <LandingPage />
+            <LandingPage handleCreateUser={handleCreateUser}/>
           )
         )}/>
-        <Route path="/dashboard"
+        <Route exact path="/dashboard"
           render={() => (
             loggedIn ? (
               <Dashboard />

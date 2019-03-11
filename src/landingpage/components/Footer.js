@@ -5,12 +5,15 @@
 import React from 'react'
 
 // ==============================
-// DASHBOARD COMPONENT
+// LANDING PAGE COMPONENT
 // ==============================
-function Dashboard() {
+function Footer() {
+  // ==============================
+  // JSX RETURN
+  // ==============================
   return (
-    <div className="sidebar">
-      dashboard component
+    <div className="landing-footer">
+      footer component
     </div>
   )
 }
@@ -18,4 +21,4 @@ function Dashboard() {
 // ==============================
 // EXPORT
 // ==============================
-export default Dashboard
+export default Footer
