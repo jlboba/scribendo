@@ -1,6 +1,9 @@
 :root {
   --main-color: #1a1b34;
   --accent-color: #A3333D;
+  --second-accent-color: #EFE9E5;
+  --third-accent-color: #B9CFED;
+  --fourth-accent-color: #FFCC70;
   --accent-font: 'Sansita', script;
   --main-font: 'Open Sans', helvetica;
 }

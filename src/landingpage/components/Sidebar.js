@@ -15,7 +15,7 @@ function Sidebar(props) {
   // VIEWS
   // ==============================
   // -- state
-  const [currentView, setCurrentView] = useState('about')
+  const [currentView, setCurrentView] = useState('signup')
 
   // -- handlers
   function handleCurrentView(view) {
