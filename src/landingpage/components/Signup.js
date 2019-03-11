@@ -3,6 +3,7 @@
 // ==============================
 // -- packages
 import React, { useState } from 'react'
+import axios from 'axios'
 
 // ==============================
 // LANDING PAGE COMPONENT
@@ -18,21 +19,52 @@ function Signup(props) {
   const [display_name, setDisplay_name] = useState('')
 
   // -- handlers
+  // handles form submit
   function handleSubmit(e) {
     // prevent default
      e.preventDefault()
-    // pass data up
-    props.handleCreateUser({
+    // create the user
+    handleCreateUser({
       email: email,
       username: username,
       password: password,
       display_name: display_name
     })
-    // clear form
-    setEmail('')
-    setUsername('')
-    setPassword('')
-    setDisplay_name('')
+  }
+
+  // handles checking whether or not the user input is valid
+  function handleValidity(e) {
+    switch(e.target.name) {
+      case 'username':
+        if(e.key.match(/[^\w.]/)) {
+          e.preventDefault()
+        }
+        break;
+      case  'password':
+        if(e.which === 32) {
+          e.preventDefault()
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  // ==============================
+  // AXIOS REQUESTS
+  // ==============================
+  // create a new user
+  function handleCreateUser(newUser) {
+    axios.post('http://localhost:3000/users', newUser)
+      .then((createdUser) => {
+        console.log(createdUser)
+        // clear form
+        setEmail('')
+        setUsername('')
+        setPassword('')
+        setDisplay_name('')
+      })
+      .catch(err => console.log(err))
   }
 
   // ==============================
@@ -66,6 +98,7 @@ function Signup(props) {
             placeholder="USERNAME"
             value={username}
             onChange={e => setUsername(e.target.value)}
+            onKeyPress={handleValidity}
           />
         </label>
         <label required className="new-password">
@@ -76,6 +109,7 @@ function Signup(props) {
             placeholder="PASSWORD"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            onKeyPress={handleValidity}
           />
         </label>
         <label className="new-displayname">
