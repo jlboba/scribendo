@@ -2,7 +2,7 @@
 /*     GRID SYSTEM      */
 /* ==================== */
 .landing-grid-container {
-  background: thistle;
+  background: whitesmoke;
   display: grid;
   height: 100vh;
   grid-template-areas: "sidebar main-content"
@@ -200,8 +200,62 @@ li.landing-nav-active:after {
 /* ==================== */
 .landing-main {
   background: whitesmoke;
+  z-index: 2;
+  position: relative;
 }
-
+.landing-main-title {
+  margin-top: 40%;
+}
+.landing-main h1, .landing-main h2 {
+  font-family: var(--accent-font);
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+.landing-main h1 {
+  font-size: 3.3em;
+  color: var(--main-color);
+  text-shadow: 1px 1px #ccc;
+  position: relative;
+  top: -1.5em;
+}
+.landing-main h2 {
+  font-size: 3.3em;
+  position: relative;
+}
+.landing-main h3 {
+  font-size: 0.9em;
+  color: #888;
+  text-align: right;
+  padding-right: 45px;
+  position: relative;
+  top: -6em;
+}
+.landing-main h3:before {
+  content: '';
+  display: inline-block;
+  width: 60%;
+  height: 2px;
+  background: #999;
+  margin: 0.45em;
+}
+.outlined-title {
+  -webkit-text-stroke: 1px var(--fourth-accent-color);
+  color: transparent;
+}
+.outlined-title-two {
+  -webkit-text-stroke: 1px var(--third-accent-color);
+  color: transparent;
+}
+.filled-title {
+  color: var(--accent-color);
+}
+.fill-one {
+  top: -0.5em;
+}
+.out-two {
+  top: -1em;
+}
 /* ==================== */
 /*       FOOTER         */
 /* ==================== */
