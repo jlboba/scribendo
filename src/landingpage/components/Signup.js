@@ -71,7 +71,7 @@ function Signup(props) {
     if(checkUsername(newUser.username)) {
       setUsernameError({
         status: true,
-        message: 'invalid username, only alphanumeric characters, underscores, and periods allowed'
+        message: 'invalid characters, try again'
       })
     }
     // checks password, if invalid set error state
