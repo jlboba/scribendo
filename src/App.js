@@ -11,9 +11,6 @@ import axios from 'axios'
 import LandingPage from './landingpage/LandingPage'
 import Dashboard from './dashboard/Dashboard'
 
-// -- hooks
-import useLoginStatus from './hooks/useLoginStatus'
-
 // -- etc.
 const ls = window.localStorage
 
@@ -22,12 +19,10 @@ const ls = window.localStorage
 // ==============================
 function App(props) {
   // ==============================
-  // STATE HOOKS
+  // STATE
   // ==============================
-  // -- login var
+  // -- user login status
   const [loginStatus, setLoginStatus] = useState(false)
-  // -- send it to loginstatus hook
-  useLoginStatus(loginStatus)
 
   // ==============================
   // USER LOGIN
