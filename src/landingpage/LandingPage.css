@@ -176,6 +176,13 @@ li.landing-nav-active:after {
   cursor: pointer;
   box-shadow: 2px 2px #555;
 }
+.user-create-error {
+  text-transform: uppercase;
+  font-size: 0.5em;
+  margin: 0px 3px;
+  color: var(--accent-color);
+}
+
 /* ==================== */
 /*         MAIN         */
 /* ==================== */
