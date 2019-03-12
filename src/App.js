@@ -23,19 +23,24 @@ function App(props) {
   // ==============================
   // -- user login status
   const [loginStatus, setLoginStatus] = useState(false)
+  // -- login errors
+  const [loginError, setLoginError] = useState(false)
 
   // ==============================
   // USER LOGIN
   // ==============================
   // -- logs in a user
   function handleLogin(user) {
+    clearLoginError()
     axios.post('http://localhost:3000/users/login', user)
       .then((loggedInUser) => {
         ls.setItem('token', loggedInUser.data.token)
         ls.setItem('user_id', loggedInUser.data.user_id)
         setLoginStatus(true)
       })
-      .catch(err => console.log(err))
+      .catch((err) => {
+        setLoginError(err.response.data)
+      })
   }
 
   // -- checks if a user is logged in with a valid token
@@ -56,6 +61,14 @@ function App(props) {
   }
 
   // ==============================
+  // HELPERS
+  // ==============================
+  // -- clears login error status
+  function clearLoginError() {
+    setLoginError(false)
+  }
+
+  // ==============================
   // EFFECT
   // ==============================
   useEffect(() => {
@@ -73,7 +86,10 @@ function App(props) {
           loginStatus ? (
             <Redirect to="/dashboard"/>
           ) : (
-            <LandingPage handleLogin={handleLogin}/>
+            <LandingPage
+              handleLogin={handleLogin}
+              loginError={loginError}
+            />
           )
         )}/>
         <Route exact path="/dashboard"

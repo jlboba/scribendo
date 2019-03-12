@@ -55,7 +55,7 @@ function Sidebar(props) {
             case 'signup':
               return <Signup handleLogin={props.handleLogin} />
             case 'login':
-              return <Login handleLogin={props.handleLogin} />
+              return <Login handleLogin={props.handleLogin} loginError={props.loginError} />
             default:
               return null
           }

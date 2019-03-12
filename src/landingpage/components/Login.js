@@ -2,8 +2,7 @@
 // DEPENDENCIES
 // ==============================
 // -- packages
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react'
 
 // ==============================
 // LOGIN COMPONENT
@@ -32,12 +31,47 @@ function Login(props) {
   function handleSubmit(e) {
     // prevent default
     e.preventDefault()
+    // clear errors if any
+    setUsernameError({
+      status: false,
+      message: ''
+    })
+    setPasswordError({
+      status: false,
+      message: ''
+    })
     // log in
     props.handleLogin({
       username: username,
       password: password
     })
   }
+
+  // -- checks if there was an error or not
+  function checkIfLoginError() {
+    if(props.loginError) {
+      switch(props.loginError) {
+        case 'username':
+          setUsernameError({
+            status: true,
+            message: 'username not registered'
+          })
+          break
+        case 'password':
+          setPasswordError({
+            status: true,
+            message: 'password incorrect'
+          })
+          break
+        default:
+          break
+      }
+    }
+  }
+
+  useEffect(() => {
+    checkIfLoginError()
+  })
 
   // ==============================
   // JSX RETURN
@@ -62,7 +96,7 @@ function Login(props) {
             onChange={e => setUsername(e.target.value)}
           />
           { usernameError.status ?
-              <div className="user-create-error">error here</div> :
+              <div className="user-create-error">{usernameError.message}</div> :
               null
           }
         </label>
@@ -76,7 +110,7 @@ function Login(props) {
             onChange={e => setPassword(e.target.value)}
           />
           { passwordError.status ?
-              <div className="user-create-error">error here</div> :
+              <div className="user-create-error">{passwordError.message}</div> :
               null
           }
         </label>
