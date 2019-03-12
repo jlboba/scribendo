@@ -7,7 +7,7 @@
   height: 100vh;
   grid-template-areas: "sidebar main-content"
                        "footer main-content";
-  grid-template-rows: 0.93fr 0.07fr;
+  grid-template-rows: 0.95fr 0.05fr;
   grid-template-columns: 0.45fr 0.55fr;
 }
 
@@ -261,4 +261,17 @@ li.landing-nav-active:after {
 /* ==================== */
 .landing-footer {
   background: #eee;
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+.landing-footer-links a {
+  margin-left: 5px;
+  display: inline-block;
+  color: var(--accent-color);
 }
