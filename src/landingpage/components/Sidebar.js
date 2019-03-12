@@ -52,7 +52,7 @@ function Sidebar(props) {
             case 'about':
               return <div>about will go here</div>
             case 'signup':
-              return <Signup handleCreateUser={props.handleCreateUser}/>
+              return <Signup handleLogin={props.handleLogin}/>
             case 'login':
               return <div>login will go here</div>
             default:

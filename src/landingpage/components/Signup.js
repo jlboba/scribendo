@@ -92,30 +92,38 @@ function Signup(props) {
     // create the user
     axios.post('http://localhost:3000/users', newUser)
       .then((createdUser) => {
-        console.log(createdUser)
         // clear form
         setEmail('')
         setUsername('')
         setPassword('')
         setDisplay_name('')
+        // automatically log in user
+        props.handleLogin({
+          username: newUser.username,
+          password: newUser.password
+        })
       })
       .catch((err) => {
-        switch(err.response.data) {
-          case 'email':
-            setEmailError({
-              status: true,
-              message: 'email already registered! try logging in or use another email'
-            })
-            break
-          case 'username':
-            setUsernameError({
-              status: true,
-              message: 'sorry, username taken! please choose another'
-            })
-            break
-          default:
-            // PUT 404 HERE LATER
-            break
+        if(err.response) {
+          switch(err.response.data) {
+            case 'email':
+              setEmailError({
+                status: true,
+                message: 'email already registered! try logging in or use another email'
+              })
+              break
+            case 'username':
+              setUsernameError({
+                status: true,
+                message: 'sorry, username taken! please choose another'
+              })
+              break
+            default:
+              // PUT 404 HERE LATER
+              break
+          }
+        } else {
+          console.log(err)
         }
       })
   }

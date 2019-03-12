@@ -23,7 +23,7 @@ function LandingPage(props) {
   return (
     <div className="landing-grid-container">
       <div className="landing-sidebar">
-        <Sidebar />
+        <Sidebar handleLogin={props.handleLogin}/>
         { /* star particles */ }
         <div className="particles">
           <ParticlesContainer />
