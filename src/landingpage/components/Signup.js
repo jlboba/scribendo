@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 // ==============================
-// LANDING PAGE COMPONENT
+// SIGNUP COMPONENT
 // ==============================
 function Signup(props) {
   // ==============================

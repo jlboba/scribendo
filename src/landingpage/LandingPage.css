@@ -124,7 +124,15 @@ li.landing-nav-active:after {
   margin: 30px auto;
   width: 85%;
 }
-.signup-form label[required] strong {
+.login-form {
+  display: grid;
+  grid-template-rows: .8fr .2fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  margin: 30px auto;
+  width: 85%;
+}
+.signup-form label[required] strong, .login-form label[required] strong {
   color: var(--accent-color);
 }
 .new-email {
@@ -138,7 +146,7 @@ li.landing-nav-active:after {
   grid-row: 3 / 4;
   grid-column: 1 / 3;
 }
-.signup-form label span {
+.signup-form label span, .login-form label span {
   display: block;
   padding: 5px;
   border-bottom: 1px solid #e9e9e9;
@@ -146,7 +154,7 @@ li.landing-nav-active:after {
   font-weight: 800;
   letter-spacing: 1px;
 }
-.signup-form input {
+.signup-form input, .login-form input {
   width: 98.9%;
   margin: 10px 0;
   padding: 8px;
@@ -155,11 +163,11 @@ li.landing-nav-active:after {
   border-radius: 5px;
   border: 1px solid #ddd;
 }
-.signup-form input:focus {
+.signup-form input:focus, .login-form input:focus {
   outline: 0;
   border: 1px solid var(--third-accent-color);
 }
-.signup-form input[type="submit"] {
+.signup-form input[type="submit"], .login-form input[type="submit"] {
   width: 98.9%;
   grid-row: 4 / 5;
   grid-column: 1 / 3;
@@ -172,7 +180,11 @@ li.landing-nav-active:after {
   font-size: 1.3em;
   transition: box-shadow 0.3s ease-in-out;
 }
-.signup-form input[type="submit"]:hover {
+.login-form input[type="submit"] {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+}
+.signup-form input[type="submit"]:hover, .login-form input[type="submit"]:hover {
   cursor: pointer;
   box-shadow: 2px 2px #555;
 }

@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 
 // -- components
 import Signup from './Signup'
+import Login from './Login'
 
 // ==============================
 // COMPONENT
@@ -52,9 +53,9 @@ function Sidebar(props) {
             case 'about':
               return <div>about will go here</div>
             case 'signup':
-              return <Signup handleLogin={props.handleLogin}/>
+              return <Signup handleLogin={props.handleLogin} />
             case 'login':
-              return <div>login will go here</div>
+              return <Login handleLogin={props.handleLogin} />
             default:
               return null
           }
