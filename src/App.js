@@ -13,7 +13,6 @@ import Dashboard from './dashboard/Dashboard'
 
 // -- etc.
 const ls = window.localStorage
-const dbUrl = 'http://scribendo-api.herokuapp.com'
 
 // ==============================
 // COMPONENT
@@ -33,7 +32,7 @@ function App(props) {
   // -- logs in a user
   function handleLogin(user) {
     clearLoginError()
-    axios.post(`${dbUrl}/users/login`, user)
+    axios.post(`${process.env.REACT_APP_DB_URL}/users/login`, user)
       .then((loggedInUser) => {
         ls.setItem('token', loggedInUser.data.token)
         ls.setItem('user_id', loggedInUser.data.user_id)
@@ -47,9 +46,9 @@ function App(props) {
   // -- checks if a user is logged in with a valid token
   function checkIfLoggedIn() {
     if(ls.token && ls.user_id) {
-      axios.get(`${dbUrl}/users/${ls.user_id}`, {
+      axios.get(`${process.env.REACT_APP_DB_URL}/users/${ls.user_id}`, {
         headers: {
-            Authorization: `Bearer ${ls.token}`
+            authorization: `Bearer ${ls.token}`
           }
       })
         .then((foundUser) => {
@@ -80,7 +79,7 @@ function App(props) {
   // ==============================
   useEffect(() => {
     checkIfLoggedIn()
-  })
+  }, [])
 
   // ==============================
   // JSX RETURN

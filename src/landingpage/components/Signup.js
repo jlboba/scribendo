@@ -90,7 +90,7 @@ function Signup(props) {
   // -- handles creating a new user
   function handleCreateUser(newUser) {
     // create the user
-    axios.post('http://localhost:3000/users', newUser)
+    axios.post(`${process.env.REACT_APP_DB_URL}/users`, newUser)
       .then((createdUser) => {
         // clear form
         setEmail('')
