@@ -27,7 +27,7 @@ function App(props) {
   const [loginError, setLoginError] = useState(false)
 
   // ==============================
-  // USER LOGIN
+  // USER LOGIN STATUS
   // ==============================
   // -- logs in a user
   function handleLogin(user) {
@@ -60,6 +60,12 @@ function App(props) {
     }
   }
 
+  // -- logs out a user
+  function handleLogout(user) {
+    setLoginStatus(false)
+    ls.removeItem('token')
+    ls.removeItem('user_id')
+  }
   // ==============================
   // HELPERS
   // ==============================
@@ -95,7 +101,9 @@ function App(props) {
         <Route exact path="/dashboard"
           render={() => (
             loginStatus ? (
-              <Dashboard />
+              <Dashboard
+                handleLogout={handleLogout}
+              />
             ) : (
               <Redirect to="/"/>
             )
