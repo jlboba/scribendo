@@ -1,0 +1,92 @@
+/* ==================== */
+/*     GRID SYSTEM      */
+/* ==================== */
+.dashboard-container {
+  background: whitesmoke;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "sidebar";
+  grid-template-rows: 1fr 10fr 1fr;
+}
+
+/* ==================== */
+/*        HEADER        */
+/* ==================== */
+.dashboard-header {
+  background: var(--main-color);
+  padding: 10px;
+  height: 3em;
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard-header h1 {
+  color: whitesmoke;
+  font-family: var(--accent-font);
+  font-weight: 900;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  margin: 0;
+  position: relative;
+  top: -1.6em;
+}
+.dashboard-header h2 {
+  font-family: var(--accent-font);
+  font-weight: 900;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  margin: 0;
+  position: relative;
+  color: transparent;
+  opacity: 0.7;
+}
+.d-first-outline {
+  -webkit-text-stroke: 1px var(--accent-color);
+}
+.d-second-outline {
+  -webkit-text-stroke: 1px var(--fourth-accent-color);
+  top: -0.8em;
+}
+.dashboard-profile-nav {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  padding: 1px;
+  border: 1px solid white;
+  z-index: 4;
+}
+.dashboard-profile-nav img {
+  border-radius: 50%;
+  width: 45px;
+}
+.dashboard-profile-nav:hover {
+  background: white;
+  cursor: pointer;
+}
+.dashboard-nav {
+  width: 0px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  overflow: hidden;
+  background: var(--fourth-accent-color);
+  transition: width 0.6s ease-in-out;
+}
+/* ==================== */
+/*         MAIN         */
+/* ==================== */
+.dashboard-main {
+  overflow: auto;
+}
+/* ==================== */
+/*       SIDEBAR        */
+/* ==================== */
+.dashboard-sidebar {
+  background: var(--main-color);
+  padding: 10px;
+  height: 3em;
+  display: fixed;
+}
