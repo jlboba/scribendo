@@ -86,29 +86,19 @@ function App(props) {
   // ==============================
   return (
     <div>
-      <Switch>
-        <Route exact path="/"
+      <Route path="/"
         render={() => (
           loginStatus ? (
-            <Redirect to="/dashboard"/>
+            <Dashboard
+              handleLogout={handleLogout}
+            />
           ) : (
             <LandingPage
               handleLogin={handleLogin}
               loginError={loginError}
             />
           )
-        )}/>
-        <Route exact path="/dashboard"
-          render={() => (
-            loginStatus ? (
-              <Dashboard
-                handleLogout={handleLogout}
-              />
-            ) : (
-              <Redirect to="/"/>
-            )
-          )}/>
-      </Switch>
+      )}/>
     </div>
   )
 }

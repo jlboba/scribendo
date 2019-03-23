@@ -3,6 +3,7 @@
 // ==============================
 // -- packages
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // ==============================
 // HEADER COMPONENT
@@ -32,13 +33,13 @@ function Header({ handleLogout }) {
   return (
     <span>
       <div className="dashboard-header">
-        <a href="/">
+        <Link to='/'>
           <div className="dashboard-logo">
             <h2 className="d-first-outline">scribendo</h2>
             <h2 className="d-second-outline">scribendo</h2>
             <h1>scribendo</h1>
           </div>
-        </a>
+        </Link>
         <div className="dashboard-profile-nav" onClick={handleProfileNavigation}>
           <img src="http://placehold.it/50x50.png" alt="user icon"/>
         </div>
