@@ -19,10 +19,12 @@ function Header({ handleLogout }) {
     if(profileNav) {
       profileNavElement.width = "0%"
       profileNavContainer.opacity = "0"
+      profileNavContainer.width = "0%"
       useProfileNav(false)
     } else {
       profileNavElement.width = "60%"
       profileNavContainer.opacity = "1"
+      profileNavContainer.width = "100%"
       useProfileNav(true)
     }
   }

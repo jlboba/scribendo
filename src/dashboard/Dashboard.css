@@ -65,14 +65,12 @@
   cursor: pointer;
 }
 .dashboard-nav-container {
-  width: 100%;
+  width: 0%;
   height: 100vh;
   background: rgba(0,0,0,0.5);
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 3;
-  overflow: none;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
 }
@@ -82,7 +80,6 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 3;
   overflow: hidden;
   background: whitesmoke;
   transition: width 0.6s ease-in-out;
