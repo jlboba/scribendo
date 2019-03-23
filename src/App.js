@@ -3,7 +3,7 @@
 // ==============================
 // -- packages
 import React, { useState, useEffect } from 'react'
-import { Route, Redirect, Switch } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 // eslint-disable-next-line
 import axios from 'axios'
 

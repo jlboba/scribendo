@@ -151,14 +151,17 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 5px;
 }
-.dashboard-sidebar li {
-  display: inline-block;
+.dashboard-sidebar li, .dashboard-sidebar a {
+  display: block;
   text-align: center;
-  margin-top: 5%;
   color: whitesmoke;
 }
-.dashboard-sidebar li:hover {
+.dashboard-sidebar li:hover, .dashboard-sidebar a:hover {
   cursor: pointer;
+  color: var(--fourth-accent-color);
+}
+a.selected {
   color: var(--fourth-accent-color);
 }

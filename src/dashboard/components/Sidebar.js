@@ -3,7 +3,7 @@
 // ==============================
 // -- packages
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 // ==============================
 // SIDEBAR COMPONENT
@@ -12,10 +12,10 @@ function Sidebar(props) {
   return (
     <div className="dashboard-sidebar">
       <ul>
-        <li><Link to='/'><i className="fas fa-home"></i></Link></li>
-        <li><Link to='/worlds'><i className="fas fa-globe"></i></Link></li>
-        <li><Link to='/stories'><i className="fas fa-book"></i></Link></li>
-        <li><Link to='/notifications'><i className="fas fa-bell"></i></Link></li>
+        <li><NavLink exact to='/' activeClassName="selected"><i className="fas fa-home"></i></NavLink></li>
+        <li><NavLink to='/worlds' activeClassName="selected"><i className="fas fa-globe"></i></NavLink></li>
+        <li><NavLink to='/stories' activeClassName="selected"><i className="fas fa-book"></i></NavLink></li>
+        <li><NavLink to='/notifications' activeClassName="selected"><i className="fas fa-bell"></i></NavLink></li>
       </ul>
     </div>
   )
