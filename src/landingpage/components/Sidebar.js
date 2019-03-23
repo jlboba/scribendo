@@ -11,7 +11,7 @@ import Login from './Login'
 // ==============================
 // COMPONENT
 // ==============================
-function Sidebar(props) {
+function Sidebar({ handleLogin, loginError }) {
   // ==============================
   // VIEWS
   // ==============================
@@ -47,15 +47,15 @@ function Sidebar(props) {
         </li>
       </ul>
       { /* main content */ }
-      <div>
+      <div className="side-main-content">
         {(() => {
           switch(currentView) {
             case 'about':
               return <div>about will go here</div>
             case 'signup':
-              return <Signup handleLogin={props.handleLogin} />
+              return <Signup handleLogin={handleLogin} />
             case 'login':
-              return <Login handleLogin={props.handleLogin} loginError={props.loginError} />
+              return <Login handleLogin={handleLogin} loginError={loginError} />
             default:
               return null
           }

@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react'
 // ==============================
 // LOGIN COMPONENT
 // ==============================
-function Login(props) {
+function Login({ handleLogin, loginError }) {
   // ==============================
   // STATE
   // ==============================
@@ -41,7 +41,7 @@ function Login(props) {
       message: ''
     })
     // log in
-    props.handleLogin({
+    handleLogin({
       username: username,
       password: password
     })
@@ -49,8 +49,8 @@ function Login(props) {
 
   // -- checks if there was an error or not
   function checkIfLoginError() {
-    if(props.loginError) {
-      switch(props.loginError) {
+    if(loginError) {
+      switch(loginError) {
         case 'username':
           setUsernameError({
             status: true,

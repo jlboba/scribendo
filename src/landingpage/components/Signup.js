@@ -8,7 +8,7 @@ import axios from 'axios'
 // ==============================
 // SIGNUP COMPONENT
 // ==============================
-function Signup(props) {
+function Signup({ handleLogin }) {
   // ==============================
   // STATE
   // ==============================
@@ -98,7 +98,7 @@ function Signup(props) {
         setPassword('')
         setDisplay_name('')
         // automatically log in user
-        props.handleLogin({
+        handleLogin({
           username: newUser.username,
           password: newUser.password
         })

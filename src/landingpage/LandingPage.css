@@ -72,6 +72,10 @@ li.landing-nav-active:after {
 .landing-nav > li:hover {
   cursor: pointer;
 }
+.side-main-content {
+  position: relative;
+  z-index: 2;
+}
 /* -- signup form -- */
 .signup {
   width: 70%;

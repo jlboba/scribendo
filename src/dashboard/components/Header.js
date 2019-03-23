@@ -7,14 +7,14 @@ import React, { useState } from 'react'
 // ==============================
 // HEADER COMPONENT
 // ==============================
-function Header(props) {
+function Header({ handleLogout }) {
   const [profileNav, useProfileNav] = useState(false)
 
   function handleProfileNavigation () {
     // get nav
     let profileNavElement = document.getElementsByClassName('dashboard-nav')[0].style
 
-    // add or remove class
+    // toggles the profile navigation
     if(profileNav) {
       profileNavElement.width = "0px"
       useProfileNav(false)
@@ -39,8 +39,9 @@ function Header(props) {
         </div>
       </div>
       <div className="dashboard-nav">
+        <h1>@ username</h1>
         <ul>
-          <li><a href="/">link</a></li>
+          <li><button onClick={handleLogout}>logout</button></li>
           <li><a href="/">link</a></li>
           <li><a href="/">link</a></li>
         </ul>
